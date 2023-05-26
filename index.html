@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>520情人节快乐！</title>
+<style>
+   .container {
+      display: flex;
+      justify-content: center;
+      color: red;
+}
+.container1 {
+      display: flex;
+      justify-content: center;
+      color: black;
+}
+
+.heart {
+  position: absolute;
+  left: 47%;
+  transform: translateX(-40%);
+  position: relative;
+  width: 100px;
+  height: 90px;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  left: 50px;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background: red;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+@keyframes beat {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+.heart {
+  animation: beat 1s infinite;
+}
+
+</style>
+  </head>
+  <body>
+      <div class="page" id="page1">
+        <h1 class="container" >520情人节快乐！</h1>
+        <div class="heart"></div>
+        <button onclick="nextPage()" class="container1">开始</button>
+      </div>
+
+      <div class="page" id="page2" style="display:none;">
+        <h1 class="container">第一步：告白</h1>
+        <p class="container1" >亲爱的王芸茜，我爱你！</p>
+        <button onclick="nextPage()" class="container1">下一步</button>
+      </div>
+
+      <div class="page" id="page3" style="display:none;">
+        <h1 class="container">第二步：表白</h1>
+        <p class="container1">我想牵着你的手一起走过余生!</p>    
+        <button onclick="nextPage()" class="container">下一步</button>
+      </div>
+
+      <div class="page" id="page4" style="display:none;">
+        <h1 class="container">第三步：承诺</h1>
+        <p class="container1">我承诺一直爱你，宠你，照顾你！</p>
+        <button onclick="nextPage()" class="container">下一步</button>
+      </div>
+
+      <div class="page" id="page5" style="display:none;">
+        <h1 class="container">最后一步：送上礼物</h1>
+        <p class="container1">这是我送给你的礼物，希望你会喜欢!</p>
+      </div>
+   
+    <script>
+let currentPage = 1;
+const totalPages = 5;
+
+function prevPage() {
+  if (currentPage > 1) {
+    document.getElementById(`page${currentPage}`).style.display = 'none';
+    currentPage--;
+    document.getElementById(`page${currentPage}`).style.display = 'block';
+  }
+}
+
+function nextPage() {
+  if (currentPage < totalPages) {
+    document.getElementById(`page${currentPage}`).style.display = 'none';
+    currentPage++;
+    document.getElementById(`page${currentPage}`).style.display = 'block';
+  }
+}
+    </script>
+  </body>
+</html>
